@@ -1,13 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&Montserrat:400,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
 @import "_titles";
+@import "_variables";
 
 * {
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+  @extend %miniTitle;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Bellefair", serif;
   padding: 0px 140px;
   padding-top: 70px;
 }
@@ -28,14 +35,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    span {
+      position: absolute;
+      left: 48%;
+      font-size: 20px;
+    }
     ul {
       display: flex;
       text-transform: uppercase;
-      font-size: 10px;
+      font-size: 11px;
+      @extend %miniTitle;
       &:first-child {
         li {
-          margin-right: 60px;
-          @extend %miniTitle;
+          margin-right: 30px;
         }
       }
     }
@@ -43,9 +55,9 @@ header {
 }
 
 .hero {
-  height: 100vh;
+  height: 85vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("https://images.pexels.com/photos/2567326/pexels-photo-2567326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   display: flex;
@@ -53,7 +65,114 @@ header {
   color: white;
   justify-content: center;
   align-items: center;
+  margin-bottom: 80px;
   h4 {
     @extend %miniTitle;
+    margin-bottom: 30px;
+  }
+  h3 {
+    font-size: 48px;
+    width: 36%;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  a {
+    color: white;
+    width: 15%;
+    border: 1px solid white;
+    padding: 20px 0px;
+    text-align: center;
+    transition: color 0.3s linear, background 0.3s linear;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.under-hero {
+  height: 80vh;
+  display: flex;
+  margin-bottom: 80px;
+  .under-hero__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h4 {
+        @extend %miniTitle;
+        margin-bottom: 30px;
+      }
+      h3 {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      a {
+        color: black;
+        width: 50%;
+        border: 1px solid black;
+        padding: 20px 0px;
+        text-align: center;
+        font-size: 10px;
+        transition: color 0.3s linear, background 0.3s linear;
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+  img,
+  div {
+    width: 50%;
+  }
+}
+
+.blog {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 60vh);
+  .blog__post {
+    background-color: $bg;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    &:nth-child(even) {
+      img {
+        order: 1;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .post__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .post__date {
+        @extend %miniTitle;
+        margin-bottom: 50px;
+      }
+      h4 {
+        font-size: 36px;
+        margin-bottom: 80px;
+        width: 80%;
+        text-align: center;
+      }
+      a {
+        // border-bottom: 2px solid black;
+        // padding-bottom: 10px;
+    }
   }
 }
