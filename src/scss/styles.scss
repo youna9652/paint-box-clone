@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&Montserrat:400,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bellefair&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dynalight&display=swap");
 @import "_titles";
 @import "_variables";
+@import "reset";
 
 * {
   box-sizing: border-box;
@@ -15,8 +17,10 @@ a {
 
 body {
   font-family: "Bellefair", serif;
-  padding: 0px 140px;
   padding-top: 70px;
+  & > *:not(.footer) {
+    padding: 0px 140px;
+  }
 }
 
 header {
@@ -61,10 +65,11 @@ header {
 
 .hero {
   height: 85vh;
-  width: 100%;
+  margin: 0px 140px;
+  max-width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("https://images.pexels.com/photos/2567326/pexels-photo-2567326.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-size: cover;
+  // background-size: cover;
   display: flex;
   flex-direction: column;
   color: white;
@@ -87,6 +92,8 @@ header {
     border: 1px solid white;
     padding: 20px 0px;
     text-align: center;
+    @extend %miniTitle;
+
     transition: color 0.3s linear, background 0.3s linear;
     &:hover {
       background-color: white;
@@ -98,7 +105,7 @@ header {
 .under-hero {
   height: 80vh;
   display: flex;
-  margin-bottom: 80px;
+  margin-bottom: 170px;
   .under-hero__content {
     height: 100%;
     display: flex;
@@ -127,6 +134,7 @@ header {
         padding: 20px 0px;
         text-align: center;
         font-size: 10px;
+        @extend %miniTitle;
         transition: color 0.3s linear, background 0.3s linear;
         &:hover {
           background-color: black;
@@ -138,6 +146,74 @@ header {
   img,
   div {
     width: 50%;
+  }
+}
+
+.polish {
+  .polish-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 170px;
+    h4 {
+      @extend %miniTitle;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 40px;
+    }
+  }
+  .polish-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .polish-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        margin-bottom: 80px;
+        cursor: pointer;
+        transition: opacity 0.3s linear;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      .polish-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h4 {
+          @extend %miniTitle;
+          margin-bottom: 10px;
+        }
+        h3 {
+          font-size: 36px;
+          font-family: "Dynalight", cursive;
+          margin-bottom: 40px;
+        }
+        span {
+          font-size: 10px;
+          margin-bottom: 40px;
+          @extend %miniTitle;
+          color: rgb(157, 157, 156);
+        }
+        a {
+          color: black;
+          width: 60%;
+          border: 1px solid black;
+          padding: 20px 0px;
+          text-align: center;
+          font-size: 10px;
+          margin-bottom: 100px;
+          @extend %miniTitle;
+          transition: color 0.3s linear, background 0.3s linear;
+          &:hover {
+            background-color: black;
+            color: white;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -177,6 +253,7 @@ header {
         text-align: center;
       }
       a {
+        @extend %miniTitle;
         @extend %hoverUnderbar;
       }
     }
@@ -207,7 +284,7 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 36px;
+  font-size: 40px;
   h4:last-child {
     color: rgb(157, 157, 156);
   }
@@ -220,7 +297,7 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   span {
     @extend %miniTitle;
     @extend %hoverUnderbar;
@@ -229,20 +306,39 @@ header {
     cursor: pointer;
   }
   h4 {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 95px;
   }
-  input {
-    font-size: 36px;
+  .news-letter-form {
+    width: 40%;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 100%;
+      font-size: 40px;
+      font-family: "Bellefair", serif;
+      border-style: none;
+      outline: none;
+    }
+    button {
+      background-color: transparent;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      i {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
   }
 }
 
 .footer {
-  position: absolute;
-  left: 0;
-  width: 100%;
   background-color: $bg;
   padding: 65px;
+  height: 300px;
   @extend %miniTitle;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
