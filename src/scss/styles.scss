@@ -191,7 +191,7 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 43vh);
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   .gallery__poster {
     height: 100%;
     cursor: pointer;
@@ -201,6 +201,78 @@ header {
       transition: opacity 0.3s linear;
       &:hover {
         opacity: 0.4;
+      }
+    }
+  }
+}
+
+.follow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 36px;
+  h4:last-child {
+    color: rgb(157, 157, 156);
+  }
+  margin-bottom: 150px;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+  span {
+    @extend %miniTitle;
+    margin-bottom: 50px;
+  }
+  h4 {
+    font-size: 36px;
+    margin-bottom: 95px;
+  }
+  input {
+    font-size: 36px;
+  }
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: $bg;
+  padding: 65px;
+  @extend %miniTitle;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  .footer__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &:nth-child(2) {
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+    }
+    .column__title {
+      color: rgb(157, 157, 156);
+      margin-bottom: 38px;
+      cursor: pointer;
+      &:hover {
+        color: black;
+      }
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      li {
+        margin-bottom: 15px;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.4;
+        }
       }
     }
   }
