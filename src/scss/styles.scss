@@ -46,6 +46,10 @@ header {
       text-transform: uppercase;
       font-size: 11px;
       @extend %miniTitle;
+      li {
+        @extend %hoverToOpac;
+        cursor: pointer;
+      }
       &:first-child {
         li {
           margin-right: 30px;
@@ -173,14 +177,7 @@ header {
         text-align: center;
       }
       a {
-        padding-bottom: 10px;
-        width: 15%;
-        text-align: center;
-        border-bottom: 2px none black;
-        transition: border-style 2s ease-in-out;
-        &:hover {
-          border-style: solid;
-        }
+        @extend %hoverUnderbar;
       }
     }
   }
@@ -226,7 +223,10 @@ header {
   margin-bottom: 40px;
   span {
     @extend %miniTitle;
+    @extend %hoverUnderbar;
+    border-color: white;
     margin-bottom: 50px;
+    cursor: pointer;
   }
   h4 {
     font-size: 36px;
@@ -270,9 +270,7 @@ header {
       li {
         margin-bottom: 15px;
         cursor: pointer;
-        &:hover {
-          opacity: 0.4;
-        }
+        @extend %hoverToOpac;
       }
     }
   }
